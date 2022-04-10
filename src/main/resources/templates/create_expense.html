@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Bookkeeping System</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#"> Accounting System</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/expenses}"> Spending Management</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+	<div class = "container">
+		<div class = "row">
+			<div class="col-lg-3 col-md-3 col-sm-6 container justity-content-center card">
+				<h1 class = "text-center"> Add a new expense  </h1>
+				
+				<div class = "card-body">
+					<form th:action = "@{/saveExpense}" th:object  = "${spending}" method = "POST">
+						<div class = "form-group">
+							<label> Date </label>
+							<input
+							type = "date"
+							name = "date"
+							th:field = "*{date}"
+							data-date-format = "yyyy-mm-dd"
+							class = "form-control js-datepicker"
+							placeholder = "enter the date"
+							
+							/>
+						</div>
+						
+						<div class = "form-group">
+							<label> Name </label>
+							<input
+							type = text
+							name = "name"
+							th:field = "*{name}"
+							class = "form-control"
+							placeholder = "enter the name"
+							
+							/>
+						</div>
+						
+						<div class = "form-group">
+							<label> Type </label>
+							<input
+							type = text
+							name = "type"
+							th:field = "*{type}"
+							class = "form-control"
+							placeholder = "enter the type"
+							
+							/>
+						</div>
+						
+						<div class = "form-group">
+							<label> Price </label>
+							<input
+							type = text
+							name = "price"
+							th:field = "*{price}"
+							class = "form-control"
+							placeholder = "enter the price"
+							
+							/>
+						</div>
+						
+						<div class = "form-group">
+							<label> Note </label>
+							<input
+							type = text
+							name = "note"
+							th:field = "*{note}"
+							class = "form-control"
+							placeholder = "enter the note"
+							
+							/>
+						</div>
+						
+						<div class = "box-footer">
+							<button type = "submit" class = "btn btn-info ">
+							Submit
+							</button>
+						</div>
+						
+						
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
