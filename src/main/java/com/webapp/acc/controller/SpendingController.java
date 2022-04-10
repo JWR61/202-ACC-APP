@@ -78,4 +78,14 @@ public class SpendingController {
 		return ("/data");
 	}
 	
+	@GetMapping("/login")
+	public String login() {
+		return ("login");
+	}
+	
+	@GetMapping("/dataAnalyze")
+	public String logout() {
+		return ("login");
+	}
+	
 }
