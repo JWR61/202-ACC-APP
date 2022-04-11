@@ -12,7 +12,7 @@ crossorigin="anonymous">
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 <br>
-<img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+
   <a class="navbar-brand" href="#">Accounting System</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -34,19 +34,28 @@ crossorigin="anonymous">
     </ul>
 
   </div>
+  
+  
+  
+  		<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+				</ul>
+		</div>
+			
+			
+			
+			
 </nav>
+<div class = "container">
 
-	
-	
-	
-	<div class = "container">
 		<div class = "row">
-			<h1 > List Expenses </h1>
-		</div>		
+			<h1 > List Expenses </h1> 
+       </div>
+
 		<div class = "row">
 			<div class = "col-lg-3">
 			<a th:href = "@{/showNewExpenseForm}" class = "btn btn-primary btn-sm mb-3"> Add Spending</a>
-
 
 			</div>
 		</div>
@@ -74,5 +83,7 @@ crossorigin="anonymous">
 			</tbody>	
 		</table>		
 	</div>		
+</body>
+</body>
 </body>
 </html>

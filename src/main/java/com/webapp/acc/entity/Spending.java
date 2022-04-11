@@ -1,6 +1,6 @@
 package com.webapp.acc.entity;
 
-import java.util.Date;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "spendings")

@@ -77,15 +77,6 @@ public class SpendingController {
 	public String data() {
 		return ("/data");
 	}
-	
-	@GetMapping("/login")
-	public String login() {
-		return ("login");
-	}
-	
-	@GetMapping("/dataAnalyze")
-	public String logout() {
-		return ("login");
-	}
+
 	
 }
