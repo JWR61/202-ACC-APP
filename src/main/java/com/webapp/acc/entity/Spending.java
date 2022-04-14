@@ -18,6 +18,9 @@ public class Spending {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
+	@Column(name = "IOType")
+    private String iotype;
 		
 	@Column(name = "Name")
 	private String name;
@@ -39,13 +42,15 @@ public class Spending {
 		
 	}
 		
-	public Spending(String name, String type, double price, String date, String note) {
+	public Spending(String name, String type, double price, String date, String note, String iotype) {
 		super();
 		this.name = name;
 		this.type = type;
 		this.price = price;
 		this.date = date;
 		this.note = note;
+		this.iotype = iotype;
+		
 	}
 	public Long getId() {
 		return id;
@@ -82,6 +87,14 @@ public class Spending {
 	}
 	public void setNote(String note) {
 		this.note = note;
+	}
+
+	public String getIotype() {
+		return iotype;
+	}
+
+	public void setIotype(String iotype) {
+		this.iotype = iotype;
 	}
 	
 	

@@ -35,6 +35,7 @@
 				
 				<div class = "card-body">
 					<form th:action = "@{/saveExpense}" th:object  = "${spending}" method = "POST">
+						
 						<div class = "form-group">
 							<label> Date </label>
 							<input
@@ -44,6 +45,18 @@
 							data-date-format = "yyyy-mm-dd"
 							class = "form-control js-datepicker"
 							placeholder = "enter the date"
+							
+							/>
+						</div>
+						
+						<div class = "form-group">
+							<label> +/- </label>
+							<input
+							type = text
+							name = "iotype"
+							th:field = "*{iotype}"
+							class = "form-control"
+							placeholder = "income or expense"
 							
 							/>
 						</div>

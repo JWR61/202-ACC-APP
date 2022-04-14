@@ -58,6 +58,7 @@ public class SpendingController {
 		Spending existingSpending = service.getSpendingById(id);
 		existingSpending.setId(id);
 		existingSpending.setDate(spending.getDate());
+		existingSpending.setIotype(spending.getIotype());
 		existingSpending.setName(spending.getName());
 		existingSpending.setNote(spending.getNote());
 		existingSpending.setPrice(spending.getPrice());
