@@ -17,18 +17,18 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 
 @Controller
-public class ReportController {
+public class Expense_Report_Controller {
     private final SpendingService service;
 
-    public ReportController(SpendingService service) {
+    public Expense_Report_Controller(SpendingService service) {
         this.service = service;
     }
 
 
-    @GetMapping("/report")
+    @GetMapping("/Expense_report")
     public ResponseEntity<byte[]> generateReport() throws FileNotFoundException, JRException {
         JRBeanCollectionDataSource beanCollectionDataSource = new JRBeanCollectionDataSource(service.getAllSpendings());
-        JasperReport compileReport = JasperCompileManager.compileReport(new FileInputStream("src/main/resources/report.jrxml"));
+        JasperReport compileReport = JasperCompileManager.compileReport(new FileInputStream("src/main/resources/Expense_report.jrxml"));
         HashMap<String, Object> map = new HashMap<>();
 
         JasperPrint report = JasperFillManager.fillReport(compileReport, map, beanCollectionDataSource);

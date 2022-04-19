@@ -10,9 +10,9 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "spendings")
+@Table(name = "income")
 
-public class Spending {	
+public class Income {	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,11 +37,11 @@ public class Spending {
 	@Column(name = "Note")
 	private String note;
 	
-	public Spending() {
+	public Income() {
 		
 	}
 		
-	public Spending(String name, String type, double price, String date, String note/*, String iotype*/) {
+	public Income(String name, String type, double price, String date, String note/*, String iotype*/) {
 		super();
 		this.name = name;
 		this.type = type;
@@ -87,16 +87,4 @@ public class Spending {
 	public void setNote(String note) {
 		this.note = note;
 	}
-/*
-	public String getIotype() {
-		return iotype;
-	}
-
-	public void setIotype(String iotype) {
-		this.iotype = iotype;
-	}*/
-	
-
-	
-
 }

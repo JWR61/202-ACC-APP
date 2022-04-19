@@ -10,5 +10,6 @@ public interface SpendingService {
 	Spending getSpendingById (long id);
 	Spending updateSpending (Spending spending);
 	void deleteSpendingById(long id);
+	Double getTotalPrice();
 
 }

@@ -1,8 +1,9 @@
 package com.webapp.acc.controller;
 
 
-import org.springframework.stereotype.Controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,6 +37,7 @@ public class SpendingController {
 	public String showNewExpenseForm(Model model){
 		Spending spending = new Spending();
 		model.addAttribute("spending", spending);
+		
 		return "create_expense";
 	}
 	
@@ -58,7 +60,7 @@ public class SpendingController {
 		Spending existingSpending = service.getSpendingById(id);
 		existingSpending.setId(id);
 		existingSpending.setDate(spending.getDate());
-		existingSpending.setIotype(spending.getIotype());
+		//existingSpending.setIotype(spending.getIotype());
 		existingSpending.setName(spending.getName());
 		existingSpending.setNote(spending.getNote());
 		existingSpending.setPrice(spending.getPrice());
@@ -73,11 +75,10 @@ public class SpendingController {
 
 		return "redirect:/expenses";
 	}
-	
-	@GetMapping("/dataAnalyze")
-	public String data() {
-		return ("/data");
-	}
 
+	
+
+
+	
 	
 }

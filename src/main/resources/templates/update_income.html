@@ -22,7 +22,7 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-            <a class="nav-link" th:href="@{/expenses}"> Spending Management</a>
+            <a class="nav-link" th:href="@{/expenses}"> Expenses</a>  
       </li>
       </li>
     </ul>
@@ -32,9 +32,9 @@
 	<div class = "container">
 		<div class = "row">
 			<div class="col-lg-3 col-md-3 col-sm-6 container justity-content-center card">
-				<h1 class = "text-center"> Update expense  </h1>
+				<h1 class = "text-center"> Update Income  </h1>
 				<div class = "card-body">
-					<form th:action = "@{/saveExpense/{id} (id=${spending.id})}" th:object  = "${spending}" method = "POST">
+					<form th:action = "@{/saveIncome/{id} (id=${income.id})}" th:object  = "${income}" method = "POST">
 						<div class = "form-group">
 							<label> Date </label>
 							<input

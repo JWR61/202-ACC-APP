@@ -1,6 +1,7 @@
 package com.webapp.acc.service.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,9 +43,28 @@ public class SpendingServiceImpl implements SpendingService {
 
 	@Override
 	public void deleteSpendingById(long id) {
-		this.spendingRepository.deleteById(id);;
+		this.spendingRepository.deleteById(id);
 
 	}
+	
+	@Override
+	public Double getTotalPrice() {
+		
+		
+		Double total = 0.0;
+		List<Double> priceList = spendingRepository.findAll().stream().map(x->x.getPrice()).collect(Collectors.toList());
+		
+		int count = priceList.size();
+		for(int i=0; i<count;i++) {
+			Double single = priceList.get(i);
+			total = total + single;
+		}
+		return total;
+	}
+	
+
+
+
 
 
 
