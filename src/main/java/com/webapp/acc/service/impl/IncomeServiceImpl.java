@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import com.webapp.acc.entity.Income;
 import com.webapp.acc.repository.IncomeRepository;
 import com.webapp.acc.service.IncomeService;
-import com.webapp.acc.service.IncomeService;
 
 @Service
 public class IncomeServiceImpl implements IncomeService {
@@ -50,11 +49,8 @@ public class IncomeServiceImpl implements IncomeService {
 	
 	@Override
 	public Double getTotalIncome() {
-		
-		
 		Double totalincome = 0.0;
 		List<Double> priceList = incomeRepository.findAll().stream().map(x->x.getPrice()).collect(Collectors.toList());
-		
 		int count = priceList.size();
 		for(int i=0; i<count;i++) {
 			Double single = priceList.get(i);
