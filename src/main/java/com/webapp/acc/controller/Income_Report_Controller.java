@@ -26,7 +26,7 @@ public class Income_Report_Controller {
 
     @GetMapping("/Income_report")
     public ResponseEntity<byte[]> generateReport() throws FileNotFoundException, JRException {
-        JRBeanCollectionDataSource beanCollectionDataSource = new JRBeanCollectionDataSource(service.getAllIncomes());
+        JRBeanCollectionDataSource beanCollectionDataSource = new JRBeanCollectionDataSource(service.getAllIncomes(null));
         JasperReport compileReport = JasperCompileManager.compileReport(new FileInputStream("src/main/resources/Income_report.jrxml"));
         HashMap<String, Object> map = new HashMap<>();
 

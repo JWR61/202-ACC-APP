@@ -22,7 +22,10 @@ public class IncomeServiceImpl implements IncomeService {
 	}
 
 	@Override
-	public List<Income> getAllIncomes() {	
+	public List<Income> getAllIncomes(String keyword) {	
+		if (keyword != null) {
+			return incomeRepository.findAll(keyword);
+		}
 		return incomeRepository.findAll();
 	}
 	

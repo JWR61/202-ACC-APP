@@ -2,6 +2,7 @@ package com.webapp.acc.controller;
 
 
 
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -28,11 +29,13 @@ public class IncomeController {
 	
 	
 	@GetMapping("/incomes")
-	public String listIncomes(Model model){
-		model.addAttribute("ins", service.getAllIncomes());
+	public String listIncomes(Model model, 
+			@Param("keyword") String keyword){
+		model.addAttribute("ins", service.getAllIncomes(keyword));
+		model.addAttribute("keyword", keyword);
 		return "incomes";
 	}
-	
+
 	@GetMapping("/showNewIncomeForm")
 	public String showNewIncomeForm(Model model){
 		Income income = new Income();

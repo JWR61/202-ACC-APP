@@ -5,7 +5,7 @@ import java.util.List;
 import com.webapp.acc.entity.Spending;
 
 public interface SpendingService {
-	List<Spending> getAllSpendings();
+	List<Spending> getAllSpendings(String keyword);
 	Spending saveSpending(Spending spending);
 	Spending getSpendingById (long id);
 	Spending updateSpending (Spending spending);

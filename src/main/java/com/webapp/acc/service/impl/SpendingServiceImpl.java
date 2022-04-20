@@ -22,7 +22,10 @@ public class SpendingServiceImpl implements SpendingService {
 	}
 
 	@Override
-	public List<Spending> getAllSpendings() {	
+	public List<Spending> getAllSpendings(String keyword) {	
+		if (keyword != null) {
+			return spendingRepository.findAll(keyword);
+		}
 		return spendingRepository.findAll();
 	}
 	

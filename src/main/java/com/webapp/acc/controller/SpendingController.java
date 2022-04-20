@@ -2,6 +2,7 @@ package com.webapp.acc.controller;
 
 
 
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -28,8 +29,10 @@ public class SpendingController {
 	
 	
 	@GetMapping("/expenses")
-	public String listSpendings(Model model){
-		model.addAttribute("spends", service.getAllSpendings());
+	public String listSpendings(Model model, 
+			@Param("keyword") String keyword){
+		model.addAttribute("spends", service.getAllSpendings(keyword));
+		model.addAttribute("keyword", keyword);
 		return "expenses";
 	}
 	
