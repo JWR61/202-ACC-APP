@@ -30,23 +30,7 @@ public class BudgetController {
 	private SpendingService service;
 	@Autowired
 	private IncomeService iservice;
-/*
-	@GetMapping("/budget")
-	public String  TotalOutcome(Model model) {
-		model.addAttribute("ou",service.getTotalPrice());
-		model.addAttribute("in",iservice.getTotalIncome());
-		model.addAttribute("budget", new Budget());
-		return "set_budget";
-	}	
 
-	@PostMapping("/update_budget")
-	public String ChangeBudget(Model model){
-		//model.addAttribute("budget", budget);
-		Budget budget = new Budget();
-		model.addAttribute("budget", budget);
-		return "budget_result";
-	}
-	*/
 	
 	@GetMapping("/budget")
 	public String  SetBudget(Model model) {

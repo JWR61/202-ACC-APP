@@ -3,6 +3,7 @@ package com.webapp.acc.controller;
 
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -81,6 +82,7 @@ public class SpendingController {
 
 		return "update_expense";
 	}
+	
 	@PostMapping("/saveExpense/{id}")
 	public String updateSpending(@PathVariable long  id,
 			@ModelAttribute("spending") Spending spending,
@@ -119,6 +121,15 @@ public class SpendingController {
 	}
 */
 	
+	@GetMapping("/chart")
+	public String chart(Model model) {
+		List<String> typeList = spendingRepository.findAll().stream().map(x->x.getType()).collect(Collectors.toList());
+		List<Double> PriceList = spendingRepository.findAll().stream().map(x->x.getPrice()).collect(Collectors.toList());
+		model.addAttribute("type", typeList);
+		model.addAttribute("price",PriceList);
+		return "chart";
+		
+	}
 
 
 	
