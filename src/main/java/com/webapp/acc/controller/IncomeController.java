@@ -2,6 +2,10 @@ package com.webapp.acc.controller;
 
 
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -26,6 +30,9 @@ public class IncomeController {
 		super();
 		this.service = incomeService;
 	}
+	
+	@Autowired
+	IncomeRepository incomeRepository;
 	
 	
 	@GetMapping("/incomes")
@@ -79,7 +86,15 @@ public class IncomeController {
 		return "redirect:/incomes";
 	}
 
-	
+	@GetMapping("/Income_chart")
+	public String chart(Model model) {
+		List<String> typeList = incomeRepository.findAll().stream().map(x->x.getType()).collect(Collectors.toList());
+		List<Double> PriceList = incomeRepository.findAll().stream().map(x->x.getPrice()).collect(Collectors.toList());
+		model.addAttribute("type", typeList);
+		model.addAttribute("price",PriceList);
+		return "Income_chart";
+		
+	}
 	
 	
 	

@@ -121,13 +121,13 @@ public class SpendingController {
 	}
 */
 	
-	@GetMapping("/chart")
+	@GetMapping("/Expense_chart")
 	public String chart(Model model) {
 		List<String> typeList = spendingRepository.findAll().stream().map(x->x.getType()).collect(Collectors.toList());
 		List<Double> PriceList = spendingRepository.findAll().stream().map(x->x.getPrice()).collect(Collectors.toList());
 		model.addAttribute("type", typeList);
 		model.addAttribute("price",PriceList);
-		return "chart";
+		return "Expense_chart";
 		
 	}
 
