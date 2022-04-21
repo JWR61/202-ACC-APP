@@ -2,6 +2,8 @@ package com.webapp.acc.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+
 import com.webapp.acc.entity.Spending;
 
 public interface SpendingService {
@@ -11,5 +13,6 @@ public interface SpendingService {
 	Spending updateSpending (Spending spending);
 	void deleteSpendingById(long id);
 	Double getTotalPrice();
+	//Page <Spending> findPaginated(int pageNo, int pageSize);
 
 }
