@@ -23,5 +23,6 @@ public interface SpendingRepository extends JpaRepository<Spending, Long> {
 			+ "LIKE %?1%")
 	public List<Spending> findAll (String keyword);
 
+	//public Page<Spending> findAll(String keykord, Pageable pagebale);
 
 }

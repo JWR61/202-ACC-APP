@@ -28,67 +28,24 @@
   </div>
 </nav>
 <br>
-	<div class = "container">
+	
+<div class = "container">
 		<div class = "row">
 			 <div class="col-lg-3 col-md-3 col-sm-6 container justity-content-center card">
 				<h1 class = "text-center"> Add a new expense  </h1>
 				
 				 <div class = "card-body">
-					<form th:action = "@{/saveExpense}" th:object  = "${spending}" method = "POST">
-						
-						<div class = "form-group">
-							<label> Date </label>
-							<input
-							type = "date"
-							name = "date"
-							th:field = "*{date}"
-							data-date-format = "yyyy-mm-dd"
-							class = "form-control js-datepicker"
-							placeholder = "enter the date"
-							/>
-						</div>
+					<form th:action = "@{/saveFeedback}" th:object  = "${f}" method = "POST">
 
-						<div class = "form-group">
-							<label> Name </label>
-							<input
-							type = text
-							name = "name"
-							th:field = "*{name}"
-							class = "form-control"
-							placeholder = "enter the name"							
-							/>
-						</div>
 						
 						<div class = "form-group">
-							<label> Type </label>
+							<label> Feedback </label>
 							<input
 							type = text
-							name = "type"
-							th:field = "*{type}"
+							name = "feedback"
+							th:field = "*{feedback}"
 							class = "form-control"
-							placeholder = "enter the type"
-							/>
-						</div>
-						
-						<div class = "form-group">
-							<label> Price </label>
-							<input
-							type = text
-							name = "price"
-							th:field = "*{price}"
-							class = "form-control"
-							placeholder = "enter the price"
-							/>
-						</div>
-						
-						<div class = "form-group">
-							<label> Note </label>
-							<input
-							type = text
-							name = "note"
-							th:field = "*{note}"
-							class = "form-control"
-							placeholder = "enter the note"
+							placeholder = "enter the feedback"
 							/>
 						</div>
 						

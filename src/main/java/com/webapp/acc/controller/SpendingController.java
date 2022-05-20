@@ -1,7 +1,4 @@
 package com.webapp.acc.controller;
-
-
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,11 +23,8 @@ import com.webapp.acc.repository.SpendingRepository;
 import com.webapp.acc.service.SpendingService;
 
 @Controller
-
 public class SpendingController {
-	
 	private SpendingService service;
-
 	public SpendingController(SpendingService spendingService) {
 		super();
 		this.service = spendingService;
@@ -38,10 +32,7 @@ public class SpendingController {
 	
 	@Autowired
 	SpendingRepository spendingRepository;
-	
 
-	
-	
 	@GetMapping("/expenses")
 	public String listSpendings(Model model, 
 			@Param("keyword") String keyword){
@@ -58,7 +49,7 @@ public class SpendingController {
 			){
 		//model.addAttribute("spends", service.getAllSpendings(keyword));
 		//model.addAttribute("keyword", keyword);
-		//return "expenses";
+
 		return findPaginated(null, 1, model);
 	}
 	*/
@@ -66,7 +57,6 @@ public class SpendingController {
 	public String showNewExpenseForm(Model model){
 		Spending spending = new Spending();
 		model.addAttribute("spending", spending);
-		
 		return "create_expense";
 	}
 	
@@ -90,7 +80,6 @@ public class SpendingController {
 		Spending existingSpending = service.getSpendingById(id);
 		existingSpending.setId(id);
 		existingSpending.setDate(spending.getDate());
-		//existingSpending.setIotype(spending.getIotype());
 		existingSpending.setName(spending.getName());
 		existingSpending.setNote(spending.getNote());
 		existingSpending.setPrice(spending.getPrice());
@@ -104,6 +93,8 @@ public class SpendingController {
 		service.deleteSpendingById(id);
 		return "redirect:/expenses";
 	}
+	
+
 	
 	/*
 	@GetMapping("/page/{pageNo}")
@@ -131,7 +122,12 @@ public class SpendingController {
 		
 	}
 
-
-	
+	/*
+	@GetMapping("/pagination/{offset}/{pageSize}")
+	private String  getSpendingbyPagination(@PathVariable int offset, @PathVariable int pageSize){
+		Page<Spending> pagi = service.findPagination(offset, pageSize);
+		
+	}
+	*/
 	
 }

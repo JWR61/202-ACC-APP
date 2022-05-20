@@ -30,23 +30,17 @@ crossorigin="anonymous">
         <a class="nav-link" th:href="@{/incomes}">Incomes</a>
       </li>
     </ul>
-
   </div>
-  
-  
-  
   		<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 				</ul>
+		
 		</div>
-			
-			
-			
-			
+		
 </nav>
-<div class = "container">
 
+<div class = "container">
 		<div class = "row">
 			<h1 > List Expenses </h1> 
        </div>
@@ -63,13 +57,15 @@ crossorigin="anonymous">
 			<div class = "col-lg-3">
 				<a th:href = "@{/Expense_chart}" class = "btn btn-primary btn-sm mb-3"> Chart </a>
 			</div>
+			<div class = "col-lg-3">
+				<a th:href = "@{/newFeedback}" class = "btn btn-primary btn-sm mb-3">Give  Feedback</a>
+			</div>
 			
 			<div>
 					<form th:action = "@{/expenses}">
 							Filter:
 							<input type = "text" name = "keyword"    th:value="${keyword}"required/>
 							<input type = "submit"  class = "btn btn" value = "Search"/>
-
 					</form>
 			</div>
 			
@@ -78,7 +74,6 @@ crossorigin="anonymous">
 			<thead class="thead-dark">
 				<tr>
 					<th> Date </th>
-					<!-- <th> +/- </th> -->
 					<th> Name </th>
 					<th> Type </th>
 					<th> Price </th>
@@ -89,7 +84,6 @@ crossorigin="anonymous">
 			<tbody>
 				<tr th:each = "a: ${spends}">
 					<td th:text = "${a.date}">
-					<!-- <td th:text = "${a.iotype}"> -->
 					<td th:text = "${a.name}">
 					<td th:text = "${a.type}">
 					<td th:text = "${a.price}">

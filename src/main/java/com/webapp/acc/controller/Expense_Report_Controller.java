@@ -24,15 +24,24 @@ public class Expense_Report_Controller {
         this.service = service;
     }
 
-
+/**
+ * Get records, compile the file, fill the file with records data,
+ * export to pdf, enable users to download in browser.
+ * @return
+ * @throws FileNotFoundException
+ * @throws JRException
+ */
+    
+    
     @GetMapping("/Expense_report")
     public ResponseEntity<byte[]> generateReport() throws FileNotFoundException, JRException {
-        JRBeanCollectionDataSource beanCollectionDataSource = new JRBeanCollectionDataSource(service.getAllSpendings(null));
-        JasperReport compileReport = JasperCompileManager.compileReport(new FileInputStream("src/main/resources/Expense_report.jrxml"));
+        
+    	JRBeanCollectionDataSource beanCollectionDataSource = new JRBeanCollectionDataSource(service.getAllSpendings(null));
+    	JasperReport compileReport = JasperCompileManager.compileReport(new FileInputStream("src/main/resources/Expense_report.jrxml"));
         HashMap<String, Object> map = new HashMap<>();
-
+        
         JasperPrint report = JasperFillManager.fillReport(compileReport, map, beanCollectionDataSource);
-        //JasperExportManager.exportReportToPdfFile(report, "acc_report.pdf");
+       
 
         byte[] data = JasperExportManager.exportReportToPdf(report);
         HttpHeaders headers = new HttpHeaders();

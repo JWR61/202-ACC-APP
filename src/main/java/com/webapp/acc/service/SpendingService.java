@@ -14,5 +14,5 @@ public interface SpendingService {
 	void deleteSpendingById(long id);
 	Double getTotalPrice();
 	//Page <Spending> findPaginated(int pageNo, int pageSize);
-
+	//Page <Spending> findPagination(int offset, int pageSize);
 }

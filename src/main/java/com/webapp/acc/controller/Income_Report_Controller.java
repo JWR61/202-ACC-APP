@@ -22,8 +22,14 @@ public class Income_Report_Controller {
     public Income_Report_Controller(IncomeService service) {
         this.service = service;
     }
-
-
+  
+    /**
+     * Get records, compile the file, fill the file with records data,
+     * export to pdf, enable users to download in browser.
+     * @return
+     * @throws FileNotFoundException
+     * @throws JRException
+     */
     @GetMapping("/Income_report")
     public ResponseEntity<byte[]> generateReport() throws FileNotFoundException, JRException {
         JRBeanCollectionDataSource beanCollectionDataSource = new JRBeanCollectionDataSource(service.getAllIncomes(null));
